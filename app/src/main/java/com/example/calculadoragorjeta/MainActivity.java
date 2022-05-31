@@ -64,17 +64,14 @@ public class MainActivity extends AppCompatActivity {
             double valorDigitado = Double.parseDouble(valorRecuperado);
 
             double gorjeta = valorDigitado * (porcentagem / 100);
-            //new DecimalFormat(".##").format(gorjeta);//
-
             double total = gorjeta + valorDigitado;
-            //new DecimalFormat(".##").format(total);//
 
-            textGorjeta.setText("R$" + gorjeta);
-            textTotal.setText("R$" + total);
+            textGorjeta.setText("R$" + new DecimalFormat("#,##0.00").format(gorjeta));
+            textTotal.setText("R$" + new DecimalFormat("#,##0.00").format(total));
         }
     }
 
-    public void restartButtom(View view){
+    public void restartButtom (View view){
         seekBar.setProgress(0);
         textConta.setText(null);
         textGorjeta.setText("R$ 0.00");
